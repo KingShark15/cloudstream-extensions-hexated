@@ -23,7 +23,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Build Plugins
-        run: ./gradlew makePlugins
+        run: ./gradlew makePlugins --no-daemon --stacktrace
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
