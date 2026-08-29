@@ -19,11 +19,13 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
 
-      - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
+      - name: Validate and Update Gradle Wrapper
+        run: |
+          chmod +x gradlew
+          ./gradlew wrapper --gradle-version 8.5
 
       - name: Build Plugins
-        run: ./gradlew makePlugins --refresh-dependencies --no-daemon
+        run: ./gradlew makePlugins --no-daemon
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
